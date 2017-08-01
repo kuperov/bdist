@@ -2,7 +2,9 @@
 bdist
 =====
 
-This is a package of distribution functions I have found useful for Bayesian analysis. Distributions include:
+[![CI Badge](https://travis-ci.org/kuperov/bdist.svg?branch=master)](https://travis-ci.org/kuperov/bdist) [![Coverage badge](https://img.shields.io/codecov/c/github/kuperov/bdist/master.png)](https://codecov.io/github/kuperov/bdist?branch=master)
+
+This is a package of distributions I have found useful for Bayesian analysis. Distributions include:
 
 -   double Generalized Pareto
 -   Weibull (alternative parameterization)
@@ -12,9 +14,7 @@ This is a package of distribution functions I have found useful for Bayesian ana
 -   inverse gamma
 -   inverse root gamma
 
-All distributions are fully unit tested.
-
-Note: This pacakge is intended primarily for myself. Use it at your own risk!
+All distributions include density, quantile, cdf, and generation functions, and all are unit tested.
 
 Installation
 ------------
