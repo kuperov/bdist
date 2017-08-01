@@ -12,3 +12,16 @@ Installation
     library(devtools)
     install_github('kuperov/acfunc')
 
+Example
+-------
+
+Plot a Weibull distribution
+
+```{r}
+  library(acfunc)
+  gdp.density <- function(x) dgdp(x, xi = 1, alpha = 2)
+  plot(gdp.density, from = -5, to = 5, col = 'blue',
+       main = expression("Double Generalized Pareto distribution:" ~
+                           xi == 1~alpha == 2))
+```
+
