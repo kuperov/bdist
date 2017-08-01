@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 *~
-..Rcheck
+*.Rcheck/
+bdist_*.tar.gz
