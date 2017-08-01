@@ -2,7 +2,18 @@
 acfunc
 ======
 
-This is a package of distribution functions I have found useful for Bayesian analysis. It isn't really intended for public release: others are welcome to use this code, but be aware that you do so at your own risk.
+This is a package of distribution functions I have found useful for Bayesian analysis. Distributions include:
+
+-   double Generalized Pareto
+-   Weibull (alternative parameterization)
+-   student t (alternative parameterization)
+-   multivariate normal
+-   inverse gamma
+-   inverse root gamma
+
+All distributions are fully unit tested.
+
+Note: This pacakge is intended primarily for myself. Use it at your own risk!
 
 Installation
 ------------
