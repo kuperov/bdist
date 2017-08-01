@@ -1,6 +1,6 @@
 
-acfunc
-======
+bdist
+=====
 
 This is a package of distribution functions I have found useful for Bayesian analysis. Distributions include:
 
@@ -20,15 +20,15 @@ Installation
 ------------
 
     library(devtools)
-    install_github('kuperov/acfunc')
+    install_github('kuperov/bdist')
 
 Example
 -------
 
-Plot a Weibull distribution
+Plot a double generalized Pareto distribution:
 
 ``` r
-  library(acfunc)
+  library(bdist)
   gdp.density <- function(x) dgdp(x, xi = 1, alpha = 2)
   plot(gdp.density, from = -5, to = 5, col = 'blue',
        main = expression("Double Generalized Pareto distribution:" ~

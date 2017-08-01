@@ -1,4 +1,4 @@
 library(testthat)
-library(acfunc)
+library(bdist)
 
-test_check("acfunc")
+test_check("bdist")

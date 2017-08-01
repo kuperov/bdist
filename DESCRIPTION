@@ -1,6 +1,6 @@
-Package: acfunc
+Package: bdist
 Type: Package
-Title: Alex Cooper's Functions
+Title: Extra distributions for Bayesian analysis
 Version: 0.1.0
 Author: Alex Cooper
 Maintainer: Alex Cooper <alexander.cooper@monash.edu>
