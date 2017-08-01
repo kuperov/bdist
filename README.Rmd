@@ -12,6 +12,7 @@ Bayesian analysis. Distributions include:
   * double Generalized Pareto
   * Weibull (alternative parameterization)
   * student t (alternative parameterization)
+  * truncated normal
   * multivariate normal
   * inverse gamma
   * inverse root gamma

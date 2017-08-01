@@ -7,6 +7,7 @@ This is a package of distribution functions I have found useful for Bayesian ana
 -   double Generalized Pareto
 -   Weibull (alternative parameterization)
 -   student t (alternative parameterization)
+-   truncated normal
 -   multivariate normal
 -   inverse gamma
 -   inverse root gamma
