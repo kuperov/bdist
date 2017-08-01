@@ -22,6 +22,8 @@ pweibull2(q, alpha, gamma)
 
 \item{gamma}{gamma parameter}
 
+\item{x}{vector of quantiles}
+
 \item{q}{vector of quantiles}
 }
 \description{

@@ -10,6 +10,7 @@
 #'
 #' @param n number of variates to draw
 #' @param q vector of quantiles
+#' @param x vector of quantiles
 #' @param alpha alpha parameter
 #' @param gamma gamma parameter
 #' @export

@@ -3,3 +3,7 @@
 ^\.gitignore$
 ^\.\.Rcheck$
 ^\.git$
+README.md
+README.Rmd
+README_files
+Makefile

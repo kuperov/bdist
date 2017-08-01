@@ -5,4 +5,8 @@
 #'
 #' @name bdist
 #' @docType package
+#'
+#' @importFrom graphics abline lines mtext par plot
+#' @importFrom stats density dnorm dt pgamma pnorm pt
+#'             rchisq rexp rgamma rnorm rt runif
 NULL
