@@ -6,6 +6,9 @@ editor_options:
 bdist
 =====
 
+[![Travis Build Status](https://travis-ci.org/kuperov/bdist.svg?branch=master)](https://travis-ci.org/kuperov/bdist)
+[![Coverage Status](https://img.shields.io/codecov/c/github/kuperov/bdist/master.svg)](https://codecov.io/github/kuperov/bdist?branch=master)
+
 This is a package of distributions I have found useful for
 Bayesian analysis. Distributions include:
 
