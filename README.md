@@ -1,8 +1,9 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 bdist
 =====
 
-[![CI Badge](https://travis-ci.org/kuperov/bdist.svg?branch=master)](https://travis-ci.org/kuperov/bdist) [![Coverage badge](https://img.shields.io/codecov/c/github/kuperov/bdist/master.png)](https://codecov.io/github/kuperov/bdist?branch=master)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bdist)](https://cran.r-project.org/package=bdist)
 
 This is a package of distributions I have found useful for Bayesian analysis. Distributions include:
 
@@ -35,4 +36,4 @@ Plot a double generalized Pareto distribution:
                            xi == 1~alpha == 2))
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
+![](README_files/figure-markdown_github/dgp-1.png)

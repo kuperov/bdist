@@ -1,11 +1,18 @@
 ---
-output: github_document
+output: 
+  github_document:
+    html_preview: FALSE
 ---
-bdist
-=====
 
-[![CI Badge](https://travis-ci.org/kuperov/bdist.svg?branch=master)](https://travis-ci.org/kuperov/bdist)
-[![Coverage badge](https://img.shields.io/codecov/c/github/kuperov/bdist/master.png)](https://codecov.io/github/kuperov/bdist?branch=master)
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+# bdist
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/bdist)](https://cran.r-project.org/package=bdist)
 
 This is a package of distributions I have found useful for
 Bayesian analysis. Distributions include:
@@ -31,7 +38,7 @@ Example
 
 Plot a double generalized Pareto distribution:
 
-```{r}
+```{r 'dgp'}
   library(bdist)
   gdp.density <- function(x) dgdp(x, xi = 1, alpha = 2)
   plot(gdp.density, from = -5, to = 5, col = 'blue',
