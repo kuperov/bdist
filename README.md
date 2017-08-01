@@ -3,7 +3,7 @@
 bdist
 =====
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bdist)](https://cran.r-project.org/package=bdist)
+[![Travis Build Status](https://travis-ci.org/kuperov/bdist.svg?branch=master)](https://travis-ci.org/kuperov/bdist) [![Coverage Status](https://img.shields.io/codecov/c/github/kuperov/bdist/master.svg)](https://codecov.io/github/kuperov/bdist?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bdist)](https://cran.r-project.org/package=bdist)
 
 This is a package of distributions I have found useful for Bayesian analysis. Distributions include:
 
