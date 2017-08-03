@@ -1,6 +1,6 @@
 # Inverse gamma distribution functions
 
-#' Inverse gamma distribution (sometimes called 'reciprocal gamma')
+#' Inverse gamma distribution
 #'
 #' We follow Gelman et al's (2014) parameterization. If \eqn{X\sim Gamma(a,b)}, then \eqn{1/X\sim InvGamma(a,b)}.
 #' Note that some authors use alternative parameterizations; see especially \link{dinvrootgamma}.
@@ -43,7 +43,7 @@ pinvgamma <- function(q, shape, scale, log = FALSE) {
   if (log) lp else exp(lp)
 }
 
-#' Inverse root gamma distribution (sometimes called 'inverse gamma')
+#' Inverse root gamma distribution
 #'
 #' If X ~ InvRootGamma(scale=sigma.sq, df=nu), then
 #' 1/(X^2) ~ Gamma(shape=nu/2, rate=nu*sigma.sq/2).
