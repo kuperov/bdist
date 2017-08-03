@@ -44,3 +44,31 @@ test_that('Student t draws the right number of variates', {
   ts <- rst(n = 243, df = 3)
   expect_equal(243, length(ts))
 })
+
+# generate a random dxd positive definite matrix
+random.pos.def <- function(d) {
+  X <- matrix(rnorm(d^2), ncol = d)
+  Sigma <- t(X) %*% X
+  if (prod(eigen(Sigma)$values) > 0)
+      Sigma
+  else
+    random.pos.def(d)
+}
+
+test_that('MV student t draws the right number of variates', {
+  Sigma <- random.pos.def(4)
+  mu <- rnorm(4)
+  ts <- rmvst(n = 43, nu = 3, mu = mu, Sigma = Sigma)
+  expect_equal(c(43, 4), dim(ts))
+})
+
+test_that('2D multivariate student integrates to unity', {
+  # we'll use 50 as 'infinity'
+  mu <- c(1,2)
+  Sigma <- matrix(c(3,0.5,0.5,6), 2)
+  nu <- 50 # keep tails small
+  f <- function(x)
+    dmvst(x, nu = nu, mu=mu, Sigma=Sigma)
+  volume <- pcubature(f, lowerLimit=c(-50, -50), upperLimit=c(50, 50), vectorInterface = F)
+  expect_true(abs(volume$integral - 1) < integral.tol)
+})

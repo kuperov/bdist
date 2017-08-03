@@ -76,13 +76,12 @@ dmvst <- function(x, nu, mu, Sigma, tol=1e-6) {
 #' @rdname mvst
 #' @export
 rmvst <- function(n, nu, mu, Sigma, tol=1e-6) {
-  d <- length(x)
+  d <- length(mu)
   evals <- eigen(Sigma, symmetric = TRUE, only.values = TRUE)$values
-  stopifnot(length(nu) == 1, length(mu) == d, dim(Sigma) == c(d,d))
+  stopifnot(length(nu) == 1, dim(Sigma) == c(d,d))
   if (any(evals < -evals[1]*tol)) stop('Sigma must be positive definite')
-  A <- chol(Sigma)
-  z <- mvrnorm(n=n, mu=mu, Sigma=Sigma, tol=tol)
+  z <- mvrnorm(n=n, mu=rep(0,d), Sigma=Sigma, tol=tol)
   x <- rchisq(n=n, df=nu)
-  mu.matrix <- matrix(rep(mu, n), d, byrow = T)
-  mu.matrix + z %*% A / sqrt(x/nu)
+  mu.matrix <- matrix(rep(mu, n), byrow = T, ncol = d)
+  mu.matrix + z * sqrt(nu/x)
 }
