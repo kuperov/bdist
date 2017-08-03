@@ -1,43 +1,64 @@
 # Truncated and multivariate normal distribution functions
 
-#' Draw 1 variate from truncated normal distribution.
-#' Runs in Op(1) time and space. Stack can overrun if range too far from draws.
+#' Truncated normal distribution.
 #'
-#' @param lower lower truncation bound
-#' @param upper upper truncation bound
+#' Density, distribution function, quantile function, and random generation
+#' for the normal distribution truncated at (lower, upper).
+#'
+#' @param x vector of quantiles
+#' @param q vector of quantiles
+#' @param p vector of probabilities
+#' @param n number of variates to generate
 #' @param mean underlying distribution mean
 #' @param sd underlying distribution sd
+#' @param lower lower truncation bound
+#' @param upper upper truncation bound
+#' @param log return logarithm
 #' @export
-rnorm1_trunc <- function(lower, upper, mean, sd) {
-  stopifnot(lower < upper, sd > 0, !is.nan(mean), !is.nan(sd))
-  y <- rnorm(1, mean = mean, sd = sd)
-  if (y < lower || y > upper)
-    rnorm1_trunc(lower, upper, mean, sd) # recursively try again
-  else
-    y
+#' @rdname norm_trunc
+rnorm_trunc <- function(n, mean, sd, lower, upper) {
+  stopifnot(n > 0, lower < upper, sd > 0, !is.nan(mean), !is.nan(sd))
+  qnorm_trunc(runif(n), mean = mean, sd = sd, lower = lower, upper = upper)
 }
 
-#' Density of a truncated normal distribution
-#'
-#' @param x quantile at which to evaluate density
-#' @param lower lower truncation bound
-#' @param upper upper truncation bound
-#' @param mean underlying distribution mean
-#' @param sd underlying distribution sd
-#' @param log if true, return log density
 #' @export
+#' @rdname norm_trunc
 dnorm_trunc <- function(x, lower = -Inf, upper = Inf, mean = 0, sd = 1, log = F) {
-  trunc.fac <- 1 - (pnorm(q = lower, mean = mean, sd = sd)
-                    + pnorm(q = upper, mean = mean, sd = sd, lower.tail = F))
+  trunc.fac <- pnorm(upper, mean = mean, sd = sd) -
+    pnorm(lower, mean = mean, sd = sd)
   stopifnot(lower < upper, all(trunc.fac > 0))
   if (log) {
-    ifelse(x < lower | x > upper, -Inf,
+    ifelse(x < lower | x > upper,
+           -Inf,
            dnorm(x, mean = mean, sd = sd, log = T) - log(trunc.fac))
   }
   else {
-    ifelse(x < lower | x > upper, 0,
+    ifelse(x < lower | x > upper,
+           0,
            dnorm(x, mean = mean, sd = sd, log = F) / trunc.fac)
   }
+}
+
+#' @export
+#' @rdname norm_trunc
+pnorm_trunc <- function(q, mean, sd, lower, upper) {
+  ifelse(q < lower, 0,
+         ifelse(q > upper, 1,
+                (pnorm(q, mean, sd) - pnorm(lower, mean, sd))/
+                  (pnorm(upper, mean, sd) - pnorm(lower, mean, sd))
+                ))
+}
+
+#' @export
+#' @rdname norm_trunc
+qnorm_trunc <- function(p, mean, sd, lower, upper) {
+  ifelse(p < 0 | p > 1, NA,
+  ifelse(p == 0, -Inf,
+  ifelse(p == 1, upper,
+         qnorm(p * (pnorm(upper, mean, sd) - pnorm(lower, mean, sd)) +
+               pnorm(lower, mean, sd),
+               mean, sd)
+         )))
 }
 
 #' Multivariate normal distribution
