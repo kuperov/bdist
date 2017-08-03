@@ -4,7 +4,7 @@
 \alias{dinvgamma}
 \alias{rinvgamma}
 \alias{pinvgamma}
-\title{Inverse gamma distribution (sometimes called 'reciprocal gamma')}
+\title{Inverse gamma distribution}
 \usage{
 dinvgamma(x, shape, scale, log = FALSE)
 

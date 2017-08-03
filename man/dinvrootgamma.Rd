@@ -4,7 +4,7 @@
 \alias{dinvrootgamma}
 \alias{rinvrootgamma}
 \alias{pinvrootgamma}
-\title{Inverse root gamma distribution (sometimes called 'inverse gamma')}
+\title{Inverse root gamma distribution}
 \usage{
 dinvrootgamma(x, shape, df, log = FALSE)
 
