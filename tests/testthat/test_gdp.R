@@ -31,6 +31,12 @@ for (i in 1:nrow(params)) {
     kt <- ks.test(draws, 'pgdp', alpha = alpha, xi = xi)
     expect_gt(kt$p.value, 0.01)
   })
+
+  test_that(sprintf('GDP cdf and inv cdf agree (alpha=%f, xi=%f)', alpha, xi), {
+    ps <- seq(0, 1, length.out = 5)
+    qs <- qgdp(ps, alpha = 1, xi = 1)
+    expect_equal(ps, pgdp(qs, alpha = 1, xi = 1))
+  })
 }
 
 test_that('GDP draws the right number of variates', {
