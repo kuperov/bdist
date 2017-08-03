@@ -20,6 +20,22 @@ for (i in 1:nrow(params)) {
     expect_equal(1, igral$value)
   })
 
+  test_that(sprintf('Inverse gamma levels agree with logs for shape = %f, scale = %f', shape, df), {
+    xs <- seq(1, 10, length.out = 5)
+    expect_equal(dinvgamma(xs, shape = shape, scale = df),
+                 exp(dinvgamma(xs, shape = shape, scale = df, log = TRUE)))
+    expect_equal(pinvgamma(xs, shape = shape, scale = df),
+                 exp(pinvgamma(xs, shape = shape, scale = df, log = TRUE)))
+  })
+
+  test_that(sprintf('Inverse root gamma levels agree with logs for shape = %f, df = %f', shape, df), {
+    xs <- seq(1, 10, length.out = 5)
+    expect_equal(dinvrootgamma(xs, shape = shape, df = df),
+                 exp(dinvrootgamma(xs, shape = shape, df = df, log = TRUE)))
+    expect_equal(pinvrootgamma(xs, shape = shape, df = df),
+                 exp(pinvrootgamma(xs, shape = shape, df = df, log = TRUE)))
+  })
+
   test_that(sprintf('Inverse root gamma density integrates to cdf for shape = %f, df = %f', shape, df), {
     limits <- seq(1,5)
     lapply(limits, function(lim) {
