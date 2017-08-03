@@ -17,6 +17,13 @@ for (i in 1:nrow(params)) {
     expect_equal(1, igral$value)
   })
 
+  test_that(sprintf('Student t density and log density agree (nu=%f, mu=%f, sigma^2=%f)', df, mu, sig.sq), {
+    xs <- seq(-100*sig.sq+mu, 100*sig.sq+mu, length.out = 10)
+    dens <- dst(xs, df = df, location = mu, scale = sig.sq)
+    log.dens <- dst(xs, df = df, location = mu, scale = sig.sq, log = TRUE)
+    expect_equal(dens, exp(log.dens))
+  })
+
   test_that(sprintf('Student t density integrates to cdf (nu=%f, mu=%f, sigma^2=%f)', df, mu, sig.sq), {
     limits <- seq(mu-2*sig.sq, mu+2*sig.sq, length.out = 5)
     lapply(limits, function(lim) {
